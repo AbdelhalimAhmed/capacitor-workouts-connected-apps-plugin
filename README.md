@@ -14,6 +14,9 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`isConnectedAppsEnabled()`](#isconnectedappsenabled)
+* [`saveWorkoutToConnectedApps(...)`](#saveworkouttoconnectedapps)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -33,5 +36,47 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
 --------------------
+
+
+### isConnectedAppsEnabled()
+
+```typescript
+isConnectedAppsEnabled() => Promise<{ isEnabled: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ isEnabled: boolean; }&gt;</code>
+
+--------------------
+
+
+### saveWorkoutToConnectedApps(...)
+
+```typescript
+saveWorkoutToConnectedApps(workout: Workout) => Promise<{ savedSuccessfully: boolean; }>
+```
+
+| Param         | Type                                        |
+| ------------- | ------------------------------------------- |
+| **`workout`** | <code><a href="#workout">Workout</a></code> |
+
+**Returns:** <code>Promise&lt;{ savedSuccessfully: boolean; }&gt;</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### Workout
+
+| Prop            | Type                |
+| --------------- | ------------------- |
+| **`id`**        | <code>string</code> |
+| **`name`**      | <code>string</code> |
+| **`type`**      | <code>string</code> |
+| **`duration`**  | <code>number</code> |
+| **`distance`**  | <code>number</code> |
+| **`calories`**  | <code>number</code> |
+| **`heartRate`** | <code>number</code> |
 
 </docgen-api>

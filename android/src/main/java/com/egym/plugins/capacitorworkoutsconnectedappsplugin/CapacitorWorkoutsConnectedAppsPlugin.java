@@ -19,4 +19,31 @@ public class CapacitorWorkoutsConnectedAppsPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public isConnectedAppsEnabled(PluginCall call) {
+        boolean isEnabled = implementation.isConnectedAppsEnabled();
+        JSObject ret = new JSObject();
+        ret.put("isEnabled", isEnabled);
+
+        //implement more logic here
+
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public saveWorkoutToConnectedApps(PluginCall call) {
+        JSObject workout = call.getObject("workout");
+        if (!call.getData().has("id")) {
+            call.reject("Must provide an id");
+            return;
+        }
+
+        //implement more logic here
+
+        JSObject ret = new JSObject();
+        ret.put("savedSuccessfully", true);
+        call.resolve(ret);
+    }
+    
 }

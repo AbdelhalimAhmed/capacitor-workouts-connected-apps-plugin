@@ -20,4 +20,21 @@ public class CapacitorWorkoutsConnectedAppsPlugin: CAPPlugin, CAPBridgedPlugin {
             "value": implementation.echo(value)
         ])
     }
+
+    @objc func isConnectedAppsEnabled(_ call: CAPPluginCall) {
+        let isEnabled = implementation.isConnectedAppsEnabled()
+        // more logic here
+        call.resolve([
+            "isConnectedAppsEnabled": isEnabled
+        ])
+    }
+
+    @objc func saveWorkoutToConnectedApps(_ call: CAPPluginCall) {
+        let workout = call.getString("workout") ?? ""
+        let isSaved = implementation.saveWorkoutToConnectedApps(workout: workout)
+        // more logic here
+        call.resolve([
+            "savedSuccessfully": isSaved
+        ])
+    }
 }
